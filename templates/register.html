@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}login{% endblock title %}
+{% block head %}
+ <link rel="stylesheet" type="text/css" href={% static 'login.css' %}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+ {% endblock head %}
+    {% block body %}
+        {% comment %} <div class="container">
+            <div class="card">
+                <div class="inner-box" id="card">
+
+                    <div class="card-front">
+
+                    <div class="login-form">
+                        <h1>Register</h1>
+                        <form method='post'>
+                        {% csrf_token %}
+                            <p>Name</p>
+                            <input type="text" name="username" placeholder="Name" required>
+
+                            <p>E-mail</p>
+                            <input type="email" name="email" placeholder="E-mail" required>
+                            
+                            <p>Password</p>
+                            <div class = "wrapper">
+                                <input type="password" name="password1" placeholder="Password" id="myInput" required>
+                                <span class="eye" onclick="myFunction()">
+                                    <i id="eye-open" class="fa fa-eye" style="color: blue;" ></i>
+                                    <i id="eye-close" class="fa fa-eye-slash" style="color: black;" ></i>
+                                </span>
+                            <p>Confirm Password</p>
+                            <div class = "wrapper">
+                                <input type="password" name="password2" placeholder="confirmPassword" id="myInput" required>
+                                <span class="eye" onclick="myFunction()">
+                                    <i id="eye-open" class="fa fa-eye" style="color: blue;" ></i>
+                                    <i id="eye-close" class="fa fa-eye-slash" style="color: black;" ></i>
+                                </span>
+                            <h6 class="forgot-pswrd">Forgot password</h6>
+                            </div>
+                    
+                            <button type="submit" class="submit-btn">Register</button>
+                        </form>
+
+                        <button type="button" class="btn" onclick="openLogin()">Already Registered - Login</button>
+                    
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div> {% endcomment %}
+        <form method='post'>
+        {% csrf_token %}
+        {{register_form|crispy}}
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+        </form>
+
+    {% endblock body %}
+
+</html>

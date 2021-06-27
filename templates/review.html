@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}review{% endblock title %}
+{% block body %}
+{% for feed in feeds %}
+<div style="border:1px solid red; margin:10px; display:inline-block; padding:10px;">
+<strong>name:</strong>{{feed.name}}
+<strong>review:</strong>{{feed.rating}}</br>
+<strong>Date: </strong>{{feed.date}}
+</div>
+{% endfor %}
+{% endblock body %}

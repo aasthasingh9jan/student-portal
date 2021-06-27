@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href={% static 'login.css' %}
+{% endblock %}
+{% block body %}
+    <div class="container">
+            <div class="card">
+                <div class="inner-box" id="card">
+                    <div class="card-front">
+
+                    <div class="login-form">
+                        <h1>Login </h1>
+                        <form method='post'>
+                        {% csrf_token %}
+                            <p>Username</p>
+                            <input type="text" name="username" placeholder="E-mail" required>
+                            
+                            <p>Password</p>
+                            <div class = "wrapper">
+                                <input type="password" name="password" placeholder="Password" id="myInput" required>
+                                <span class="eye" onclick="myFunction()">
+                                    <i id="eye-open" class="fa fa-eye" style="color: blue;" ></i>
+                                    <i id="eye-close" class="fa fa-eye-slash" style="color: black;" ></i>
+                                </span>
+                            <h6 class="forgot-pswrd">Forgot password</h6>
+                            </div>
+                    
+                            <button type="submit" class="submit-btn">Login</button>
+                        </form>
+
+                        <button type="button" class="btn" onclick="window.location.href='{% url 'register' %}'; return false;">Register</button>
+                    </div>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+        </div>
+{% endblock %}
